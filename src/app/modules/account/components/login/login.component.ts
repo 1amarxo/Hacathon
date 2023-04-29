@@ -1,5 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AccountFacadeService } from '../../services/account-facede.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +18,7 @@ export class LoginComponent  {
   get email(){return this.loginForm.get('email')}
   get password(){return this.loginForm.get('password')}
 
-  constructor() {
+  constructor(private accountFacade: AccountFacadeService, private router: Router) {
     this.loginForm = new FormGroup({
       email: new FormControl(null, [Validators.email, Validators.required]),
       password: new FormControl(null, [ Validators.required])
@@ -23,7 +26,16 @@ export class LoginComponent  {
   }
    
   async onSubmit(){
-   
+    try{
+      await this.accountFacade.login(this.loginForm.value);
+    }
+    catch(error){
+      // this.loginForm.reset();
+      // let currentError = error as HttpErrorResponse;
+
+      // if(currentError.status == 0) this.description = 'Server not found [404]';
+      // else this.description = currentError.error;
+    }
   }
 
 }

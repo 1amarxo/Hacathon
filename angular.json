@@ -107,5 +107,8 @@
       }
     }
   },
-  "defaultProject": "Hacaton"
+  "defaultProject": "Hacaton",
+  "cli": {
+    "analytics": "3485355e-9d86-4b06-ac91-735effa98bea"
+  }
 }
