@@ -5,8 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: '/account/login', pathMatch: 'full'},
+  {path: '', redirectTo: '/main/landing', pathMatch: 'full'},
   {path: 'account', loadChildren: () => import('./modules/account/account.module').then(m=>m.AccountModule)},
+  {path: 'main', loadChildren: () => import('./modules/main/main.module').then(m=>m.MainModule)},
   {path: '**', component: ErrorComponent}
 ];
 

@@ -1,6 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormControl, UntypedFormGroup, Validators } from '@angular/forms';
 import { AccountFacadeService } from '../../services/account-facede.service';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent  {
 
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
 
   description:string='';
   
@@ -19,9 +19,9 @@ export class LoginComponent  {
   get password(){return this.loginForm.get('password')}
 
   constructor(private accountFacade: AccountFacadeService, private router: Router) {
-    this.loginForm = new FormGroup({
-      email: new FormControl(null, [Validators.email, Validators.required]),
-      password: new FormControl(null, [ Validators.required])
+    this.loginForm = new UntypedFormGroup({
+      email: new UntypedFormControl(null, [Validators.email, Validators.required]),
+      password: new UntypedFormControl(null, [ Validators.required])
     })
   }
    

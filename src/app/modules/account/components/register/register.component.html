@@ -14,13 +14,23 @@
                 name="email"
                 class="input">
         
-            <input formControlName="userName"
+            <input formControlName="firstName"
                 placeholder="User Name"
                 type="text"
-                id="userName"
+                id="firstName"
                 minlength="7"
                 maxlength="20"
-                name="userName"
+                name="firstName"
+                class="input">
+
+                
+            <input formControlName="lastName"
+                placeholder="Last Name"
+                type="text"
+                id="lastName"
+                minlength="7"
+                maxlength="20"
+                name="lastName"
                 class="input">
             <input 
                  formControlName="password"
@@ -34,7 +44,7 @@
     
                 </div>
                
-            <button [disabled]="!registerForm.valid" type="submit" class="registerbtn">Register</button>
+            <button type="submit" class="registerbtn">Register</button>
           
           <div class="container signin">
             <p>Want to create an account? <a href="/account/login">Sign in</a>.</p>
@@ -45,9 +55,9 @@
                 <span *ngIf="email?.errors?.['required']">* Email is required</span>
                 <span *ngIf="email?.errors?.['email']">* Email is not valid</span>
             </ng-container>
-            <ng-container *ngIf="userName?.touched">
-                <span *ngIf="userName?.errors?.['required']">* User name is required</span>
-                <span *ngIf="userName?.errors?.['pattern']">* User name is not valid</span>
+            <ng-container *ngIf="firstName?.touched">
+                <span *ngIf="firstName?.errors?.['required']">* User name is required</span>
+                <span *ngIf="firstName?.errors?.['pattern']">* User name is not valid</span>
             </ng-container>
             <ng-container *ngIf="password?.touched">
                 <span *ngIf="password?.errors?.['required']">* Password is required</span>
